@@ -15,6 +15,7 @@ const User = require("../../models/User");
 router.post(
   "/",
   [
+    // console.log('check is processed');
     check("name", "name is required").not().isEmpty(),
     check("email", "please include a valid email").isEmail(),
     check(
@@ -23,6 +24,8 @@ router.post(
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
+    //console.log(req.body);
+    // console.log("function is processed");
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
