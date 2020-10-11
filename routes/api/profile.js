@@ -67,6 +67,8 @@ router.post(
       linkedin,
     } = req.body;
 
+    console.log(req.body);
+
     // build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
@@ -83,11 +85,11 @@ router.post(
 
     // Build social object
     profileFields.social = {};
-    if (youtube) profileFields.youtube = youtube;
-    if (twitter) profileFields.twitter = twitter;
-    if (facebook) profileFields.facebook = facebook;
-    if (linkedin) profileFields.linkedin = linkedin;
-    if (instagram) profileFields.instagram = instagram;
+    if (youtube) profileFields.social.youtube = youtube;
+    if (twitter) profileFields.social.twitter = twitter;
+    if (facebook) profileFields.social.facebook = facebook;
+    if (linkedin) profileFields.social.linkedin = linkedin;
+    if (instagram) profileFields.social.instagram = instagram;
 
     // console.log(profileFields.social.twitter);
 
